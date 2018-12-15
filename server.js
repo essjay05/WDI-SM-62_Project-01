@@ -5,6 +5,7 @@ require('dotenv').config();
 const
     express = require('express'),
     app = express(),
+    axios = require('axios'),
     ejsLayouts = require('express-ejs-layouts'),
     mongoose = require('mongoose'),
     flash = require('connect-flash'),
