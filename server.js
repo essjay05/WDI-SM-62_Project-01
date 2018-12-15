@@ -12,52 +12,53 @@ const
     session = require('express-session'),
     MongoDBStore = require('connect-mongodb-session')(session),
     passport = require('passport'),
-    passportConfig = require('./services/auth'),
-    path = require('path'),
-    usersRouter = require('./routes/users.js'),
+    // passportConfig = require('./services/auth'),
+    // path = require('path'),
+    // usersRouter = require('./routes/users.js'),
     methodOverride = require('method-override'),
-    logger = require('morgan');
+    logger = require('morgan'),
+    PORT = process.env.PORT || 3000;
 
 // ENVIRONMENT PORT
-const
-    PORT = process.env.PORT || 3000,
-    mongoConnectionString = process.env.MONGOD_URI // SEE .env 
+// const
+   
+//     mongoConnectionString = process.env.MONGOD_URI // SEE .env 
 
 // MONGOOSE CONNECTION
-mongoose.connect(mongoConnectionString, {useNewUrlParser: true }, (err) => {
-    console.log(err || "Connected to mLab. (passport-authentication)")
-});
+// mongoose.connect(mongoConnectionString, {useNewUrlParser: true }, (err) => {
+//     console.log(err || "Connected to mLab. (passport-authentication)")
+// });
 
 // WILL STORE SESSION INFORMATION AS A 'sessions' COLLECTION IN MONGO
-const store = new MongoDBStore({
-    uri: mongoConnectionString,
-    collection: 'sessions'
-});
+// const store = new MongoDBStore({
+//     uri: mongoConnectionString,
+//     collection: 'sessions'
+// });
 
     // DATABASE
 require('./db');
 
 // EJS CONFIGURATIONS
-app.set('view engine', 'ejs')
-app.use(ejsLayouts)
+// app.set('view engine', 'ejs')
+// app.use(ejsLayouts)
 
-app.use(session({
-    secret: 'expectoPatronum',
-    cookie: { maxAge: 6000000000 },
-    resave: true,
-    saveUninitialized: false,
-    store
-}));
+// app.use(session({
+//     secret: 'expectoPatronum',
+//     cookie: { maxAge: 6000000000 },
+//     resave: true,
+//     saveUninitialized: false,
+//     store
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-app.use((req, res, next) => {
-    app.locals.currentUser = req.user;
-    app.locals.loggedIn = !!req.user;
+// app.use((req, res, next) => {
+//     app.locals.currentUser = req.user;
+//     app.locals.loggedIn = !!req.user;
 
-    next();
-});
+//     next();
+// });
 
 
 // MIDDLEWARE
@@ -77,5 +78,5 @@ app.use(logger('dev'));
 
 // LISTENING PORT
 app.listen(PORT, err => {
-    console.log(err || `Listening on PORT`);
+    console.log(err || `Server listening on PORT ${PORT}`);
 });
