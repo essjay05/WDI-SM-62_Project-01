@@ -13,9 +13,9 @@ const
     session = require('express-session'),
     MongoDBStore = require('connect-mongodb-session')(session),
     passport = require('passport'),
-    // passportConfig = require('./services/auth'),
-    // path = require('path'),
-    // usersRouter = require('./routes/users.js'),
+    passportConfig = require('./services/auth'),
+    path = require('path'),
+    usersRouter = require('./routes/users.js'),
     methodOverride = require('method-override'),
     logger = require('morgan'),
     PORT = process.env.PORT || 3000;
@@ -38,9 +38,18 @@ const store = new MongoDBStore({
     // DATABASE
 require('./db');
 
+// MIDDLEWARE
+app.use(logger('dev')) //LOG INCOMING REQUESTS TO TERMINAL
+app.use(cookieParser()) // INTERPRET COOKIES THAT ARE ATTACHED TO REQUESTS
+app.use(express.urlencoded({extended: true})) // INTERPRET STANDARD FORM DATA IN REQUESTS
+app.use(flash()) // SET AND RESET FLASH MESSAGES
+app.use(methodOverride('_method')) // ALLOW FOR METHOD OVERRIDE ON HTML FOR GET/POST TO BE REPLACED BY PATCH/PUT/DELETE
+app.use(express.json());
+app.use(logger('dev'));
+
 // EJS CONFIGURATIONS
 app.set('view engine', 'ejs')
-app.use(ejsLayouts)
+app.use(ejsLayouts);
 
 app.use(session({
     secret: 'expectoPatronum',
@@ -59,16 +68,6 @@ app.use((req, res, next) => {
 
     next();
 });
-
-
-// MIDDLEWARE
-app.use(logger('dev')) //LOG INCOMING REQUESTS TO TERMINAL
-app.use(cookieParser()) // INTERPRET COOKIES THAT ARE ATTACHED TO REQUESTS
-app.use(express.urlencoded({extended: true})) // INTERPRET STANDARD FORM DATA IN REQUESTS
-app.use(flash()) // SET AND RESET FLASH MESSAGES
-app.use(methodOverride('_method')) // ALLOW FOR METHOD OVERRIDE ON HTML FOR GET/POST TO BE REPLACED BY PATCH/PUT/DELETE
-app.use(express.json());
-app.use(logger('dev'));
 
 
 // ROUTES
