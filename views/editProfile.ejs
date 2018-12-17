@@ -1,0 +1,32 @@
+<div class="col-sm-6 offset-md-3">
+        <h1>Edit Profile</h1>
+        <form method="post" action="/users/profile?_method=PATCH">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= currentUser.name %>">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= currentUser.email %>">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="form-group">
+                <label for="name">Location</label>
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+            <div class="form-group">
+                <label for="name">Skill Level</label>
+                <input type="text" class="form-control" id="skillLevel" name="skillLevel">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        
+        </form>
+        <form method="post" action="/users/profile?_method=DELETE">
+            <button type="delete" class="btn btn-danger deleteUser col-3">Delete Profile</button>
+        </form>
+        <hr>
+        <p>Go back to your <a href="/users/profile">profile</a>.</p>
+    </div>

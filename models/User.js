@@ -5,8 +5,7 @@ const
     mongoose = require('mongoose'),
     bcrypt = require('bcrypt-nodejs'),
     // CREATE NEW/TOPIC SCHEMA
-    schema = mongoose.Schema,
-    UserSchema = new Schema ({
+    UserSchema = new mongoose.Schema ({
         firstName: String,
         lastName: String,
         email: String,
@@ -20,9 +19,6 @@ const
             ref: 'Hike'
         }]
     }, {timestamps: true});
-
-// CREATE MONGOOSE SCHEMA 
-const Schema = mongoose.Schema;
 
 
 // USER MODEL SCHEMAS TO AUTHENTICATE USER PASSWORD
@@ -49,11 +45,6 @@ const Schema = mongoose.Schema;
 UserSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
-
-// create User model to be exportable:
-const User = mongoose.model('User', userSchema)
-module.exports = User;
-
 
 // CREATE MODEL
 const User = mongoose.model('User', UserSchema);

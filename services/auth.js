@@ -2,7 +2,7 @@
 const
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
-    User = require('..models/User');
+    User = require('../models/User');
 
 // CREATING A SESSION ID AND PASSING ALONG THE COOKIE
 passport.serializeUser((user, done) => {

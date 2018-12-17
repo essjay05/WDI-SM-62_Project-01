@@ -6,13 +6,13 @@ const
 
 // RENDER LOGIN VIEW
 usersRouter.get('/login', (req, res) => {
-    res.render('login', )
+    res.render('login', { message: req.flash('loginMessage') })
 });
 
 // AUTHENTICATING LOGIN
 usersRouter.post('/login', passport.authenticate('local-login', {
     successRedirect: '/users/profile',
-    failureRedirect: 'users/login'
+    failureRedirect: '/users/login'
 }));
 
 // RENDER SIGNUP VIEW
@@ -49,13 +49,21 @@ usersRouter.patch('/profile', isLoggedIn, (req, res) => {
 });
 
 // LOG OUT
-usersRouter.get('/logout', (req, res => {
+usersRouter.get('/logout', (req, res) => {
     // DESTROY THE SESSION AND REDIRECT THE USER BACK TO THE SPLASH PAGE.
     req.logout();
     res.redirect('/');
-}));
+});
 
 // DELETE USER PROFILE
 usersRouter.get('/deleted', isLoggedIn, (req, res) => {
     res.render('deltedProfile');
 });
+
+// MIDDLEWARE:
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/users/login');
+}
+
+module.exports = usersRouter;

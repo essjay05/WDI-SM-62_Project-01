@@ -14,8 +14,9 @@ const
     MongoDBStore = require('connect-mongodb-session')(session),
     passport = require('passport'),
     passportConfig = require('./services/auth'),
-    path = require('path'),
-    usersRouter = require('./routes/users.js'),
+    // path = require('path'),
+    usersRouter = require('./routes/usersRouter.js'),
+    hikesRouter = require('./routes/hikesRouter.js'),
     methodOverride = require('method-override'),
     logger = require('morgan'),
     PORT = process.env.PORT || 3000;
