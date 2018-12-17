@@ -10,20 +10,29 @@
         <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6">
-                    <div id="map"></div>
+                        <div id="map">
+                            <%= initMap() %>
+                        </div>
                     </div>
                     <div class="col-xs-12 col-md-6">
                     <div id="info">
                             <p class="lead">
                             <% if (trails) { %>
-                                <%= trails[0].name %>
-                            <% } %>
+                                <% trails.forEach( i => { %>
+                                    <h4><%= i.name %> </h4>
+                                    <p><%= i.length %> miles </p>
+                                    <p><%= i.difficulty %> </p>
+                                    <p><%= i.location %> </p>
+                                    <p><%= i.latitude %> </p>
+                                    <p><%= i.longitude %> </p>
+                            <% })} %>
                             </p>                
                         
                     </div>
                     </div>
                 </div>
             </div>
+            
        
     </div>
 </div>
