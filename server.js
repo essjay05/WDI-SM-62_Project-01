@@ -1,5 +1,5 @@
 // REQUIRE DOTENV DATABASE CONNECTION
-require('dotenv').config();
+// require('dotenv').config();
 
 // CONSTANTS TO REQUIRE FROM EXTERNAL FILES
 const
@@ -23,10 +23,10 @@ const
 
 // ENVIRONMENT PORT
 const 
-    mongoConnectionString = process.env.MONGOD_URI // SEE .env 
+    mongoConnectionString = process.env.MONGOD_URI || "mongodb://joy_ess:W3h3artGA!01@ds153730.mlab.com:53730/joy-ess_project-01_1st-fullstack-app"
 
 // MONGOOSE CONNECTION
-mongoose.connect(mongoConnectionString, {useNewUrlParser: true }, (err) => {
+mongoose.connect(mongoConnectionString, (err) => {
     console.log(err || "Connected to mLab. (passport-authentication)")
 });
 
@@ -37,9 +37,10 @@ const store = new MongoDBStore({
 });
 
     // DATABASE
-require('./db');
+// require('./db');
 
 // MIDDLEWARE
+app.use(express.static(__dirname + '/views'))
 app.use(logger('dev')) //LOG INCOMING REQUESTS TO TERMINAL
 app.use(cookieParser()) // INTERPRET COOKIES THAT ARE ATTACHED TO REQUESTS
 app.use(express.urlencoded({extended: true})) // INTERPRET STANDARD FORM DATA IN REQUESTS

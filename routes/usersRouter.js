@@ -5,14 +5,14 @@ const
     passport = require('passport');
 
 // RENDER LOGIN VIEW
-usersRouter.get('/login', (req, res) => {
-    res.render('login', { message: req.flash('loginMessage') })
+usersRouter.get('/', (req, res) => {
+    res.render('index', { message: req.flash('loginMessage') })
 });
 
 // AUTHENTICATING LOGIN
-usersRouter.post('/login', passport.authenticate('local-login', {
+usersRouter.post('/', passport.authenticate('local-login', {
     successRedirect: '/users/profile',
-    failureRedirect: '/users/login'
+    failureRedirect: '/'
 }));
 
 // RENDER SIGNUP VIEW
@@ -63,7 +63,7 @@ usersRouter.get('/deleted', isLoggedIn, (req, res) => {
 // MIDDLEWARE:
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
-    res.redirect('/users/login');
+    res.redirect('/');
 }
 
 module.exports = usersRouter;
