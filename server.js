@@ -1,5 +1,5 @@
 // REQUIRE DOTENV DATABASE CONNECTION
-// require('dotenv').config();
+require('dotenv').config();
 
 // CONSTANTS TO REQUIRE FROM EXTERNAL FILES
 const
@@ -23,10 +23,10 @@ const
 
 // ENVIRONMENT PORT
 const 
-    mongoConnectionString = process.env.MONGOD_URI || "mongodb://joy_ess:W3h3artGA!01@ds153730.mlab.com:53730/joy-ess_project-01_1st-fullstack-app"
+    mongoConnectionString = process.env.MONGOD_URI 
 
 // MONGOOSE CONNECTION
-mongoose.connect(mongoConnectionString, (err) => {
+mongoose.connect(mongoConnectionString, {useNewUrlParser: true },  (err) => {
     console.log(err || "Connected to mLab. (passport-authentication)")
 });
 
@@ -70,6 +70,8 @@ app.use((req, res, next) => {
 
     next();
 });
+
+
 
 
 // ROUTES

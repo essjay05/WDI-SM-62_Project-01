@@ -19,8 +19,10 @@ I have created a full stack app for "Girls Who Hike" for members to log in, crea
 3. I then created my user stories in trello to list the actions they would take, what they would see etc: ![Screencapture of trello to do list](https://i.imgur.com/UbPS9LE.png).
 5. Talked through my ideas/ processes with Zac and Alex for approval.
 6. Create a new git repo for the project.
-6. Wrote up the HTML for the bare bones start.
-7. Applied very basic boxes to tweak/toggle to try and get my wireframe developed.
+
+#####Setting up the Database & Authentication:
+1. Created and set up my database and mLab.
+2. Set up the authentication.
 8. Did research, found a codepen that helped me figure out how to structure my divs using flex and grid.
 9. Implemented the code I was experimenting with into my grid for my portfolio section. ![Grid code](https://i.imgur.com/oz91BIa.png).
 10. Input placeholder medias so I can view/try to enable any JS or jQuery.

@@ -10,7 +10,7 @@ usersRouter.get('/', (req, res) => {
 });
 
 // AUTHENTICATING LOGIN
-usersRouter.post('/', passport.authenticate('local-login', {
+usersRouter.post('/login', passport.authenticate('local-login', {
     successRedirect: '/users/profile',
     failureRedirect: '/'
 }));
@@ -57,7 +57,7 @@ usersRouter.get('/logout', (req, res) => {
 
 // DELETE USER PROFILE
 usersRouter.get('/deleted', isLoggedIn, (req, res) => {
-    res.render('deltedProfile');
+    res.render('deletedProfile');
 });
 
 // MIDDLEWARE:
