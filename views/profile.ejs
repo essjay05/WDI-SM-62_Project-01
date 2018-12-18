@@ -3,10 +3,13 @@
     <div class="container">
         <p class="lead">
         <% if (loggedIn) { %>
-            <h1> Success! <%= user.firstName %> You're logged in! </h1>
+            <h1> Success, <%= user.firstName %> you're logged in! %> </h1>
         <% } %>    
       <!-- USER PROFILE -->
-            <%= user.email %> | <%= user._id %> 
+            <%= user.email %> | User Id: <%= user._id %>
+            <br><%= user.location %>
+            <br><%= user.skillLevel %>
+            
             
         </p>
 </div>

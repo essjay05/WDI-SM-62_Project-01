@@ -1,10 +1,6 @@
 <!-- SIGN UP PAGE FORM TO RETRIEVE USER PROFILE DATA -->
 <div class="col-sm-6 offset-md-3">
     <h1>Sign Up</h1>
-    <!-- RENDER FLASH MESSAGE IF THERE IS ONE: -->
-          <% if (message.length > 0) { %>
-                <div class="alert alert-danger"> <%= message %> </div>
-          <% } %>
     <form method="post" action="/users/signup">
         <div class="form-group">
             <label for="name">First Name</label>

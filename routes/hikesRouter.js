@@ -8,15 +8,6 @@ const
 
 // GET HIKES NEAR LOS ANGELES, CA from HIKING API
 
-// axios.get(nearbyHikes);
-    
-//     .then(res => {
-//         let localHikes = res.data.trails;
-//         console.log(res.data.trails);
-//     }
-
-
-
 hikesRouter.get('/takeahike', isLoggedIn, (req, res) => {
     // axios.get("https://www.hikingproject.com/data/get-trails?lat=34.0129&lon=-118.495&maxDistance=10&key=200396757-3d3fb5fb621382057bd6cea8231474d6");
     //     .then(({ data }) => {
@@ -26,6 +17,15 @@ hikesRouter.get('/takeahike', isLoggedIn, (req, res) => {
             res.render('takeahike', data);
         });
 });
+
+// CREATE GOOGLE MAP SHOWING EACH OF THE TRAIL LOCATIONS
+// let map = function initMap() {
+//         map = new google.maps.Map(document.getElementById('map'), {
+//           center: {lat: 34.013, lng: -118.495},
+//           zoom: 8
+//         })
+//       }
+// initMap();
 
 
 

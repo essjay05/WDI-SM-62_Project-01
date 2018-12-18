@@ -2,10 +2,11 @@
 const
     express = require('express'),
     usersRouter = new express.Router(),
-    passport = require('passport');
+    passport = require('passport'),
+    User = require('../models/User');
 
 // RENDER LOGIN VIEW
-usersRouter.get('/', (req, res) => {
+usersRouter.get('/login', (req, res) => {
     res.render('index', { message: req.flash('loginMessage') })
 });
 
@@ -20,13 +21,13 @@ usersRouter.get('/signup', (req, res) => {
     res.render('signup', {message: req.flash('signupMessage') })
 });
 
-// AUTHENTICATING SIGNUP
+// AUTHENTICATING SIGNUP [CREATE]
 usersRouter.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/users/profile',
     failureRedirect: '/users/signup'
 }));
 
-// SHOW PROFILE MUST BE LOGGED IN
+// SHOW PROFILE MUST BE LOGGED IN [READ]
 usersRouter.get('/profile', isLoggedIn, (req, res) => {
     // Render the user's profile ONLY when the user is logged in
     res.render('profile', { user: req.user })
@@ -56,8 +57,11 @@ usersRouter.get('/logout', (req, res) => {
 });
 
 // DELETE USER PROFILE
-usersRouter.get('/deleted', isLoggedIn, (req, res) => {
-    res.render('deletedProfile');
+usersRouter.delete('/profile', isLoggedIn, (req, res) => {
+    User.findByIdAndDelete(req.user._id, (err, deletedUser) => {
+        if (err) res.json({ success: false, err });
+        res.render('signup');
+    })  
 });
 
 // MIDDLEWARE:
