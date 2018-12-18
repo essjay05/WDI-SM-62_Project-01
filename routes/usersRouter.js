@@ -60,7 +60,7 @@ usersRouter.get('/logout', (req, res) => {
 usersRouter.delete('/profile', isLoggedIn, (req, res) => {
     User.findByIdAndDelete(req.user._id, (err, deletedUser) => {
         if (err) res.json({ success: false, err });
-        res.render('signup');
+        res.render('index');
     })  
 });
 

@@ -35,3 +35,19 @@ var map
     }
 initMap()
         
+// -------- POTENTIAL BONUS FEATURE ------------- //
+// Update COMPLETE/INCOMPLETE status
+// var toggleButton = $('toggleButton');
+// toggleButton.on('click, function')
+// toggleButton.data('text-original', toggleButton.text());
+// toggleButton.text(toggleButton.data('text-swap'));
+
+// $('toggleButton').on('click', function() {
+//     let el = $(this);
+//     if (el.text() == el.data('text-swap')) {
+//         el.text(el.data('text-original'));
+//     } else {
+//         el.data('text-original', el.text());
+//         el.text(el.data('text-swap'));
+//     }
+// });

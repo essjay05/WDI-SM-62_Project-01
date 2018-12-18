@@ -8,6 +8,7 @@ const Schema = mongoose.Schema;
 const HikeSchema = new Schema ({
     id: Number,
     name: String,
+    complete: Boolean,
     type: String,
     summary: String,
     difficulty: String,
