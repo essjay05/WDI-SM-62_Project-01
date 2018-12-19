@@ -4,7 +4,8 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         
-        <h1>Hikes near Los Angeles, CA</h1>
+        <h1>GWH City Slicker Challenge</h1> 
+        <h3>Hike List: Spring 2019</h3>
         
         <div class="container">
             <div class="row">
@@ -16,16 +17,24 @@
                 <div class="col-xs-12 col-md-6">
                     <div id="info">
                         <p class="lead">
-                        <% if (trails) { %>
-                            <% trails.forEach( i => { %>
-                                <h4><%= i.name %> </h4>
+                        <% if (success) { %>
+                            <% hikes.forEach( i => { %>
+                                <h4 class="hikeObj"><%= i.name %> </h4>
                                 <p><%= i.length %> miles </p>
                                 <p><%= i.location %> </p>
+                                <p><%= i.summary %> </p>
                                 <p><%= i.latitude %> </p>
                                 <p><%= i.longitude %> </p>
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" data-text-swap="Complete">
-                                        Incomplete
-                                </button>
+                                <p class="hikeEndObj"><a href=`<%= i.trailUrl %>`</a></p>
+                                <form method="post" action="/users/profile?_method=PATCH">
+                                    <button type="patch" class="btn-sm btn-success addUser col-2" name="addUser">
+                                        Completed
+                                        <% user.hikes.push(i.name); %>
+                                    </button>
+                                </form>
+                                <form method="post" action="/users/profile<%=s.?_method=PATCH">
+                                    <button type="patch" class="btn-sm btn-danger removeUser col-2" name="removeUser">Not Completed</button>
+                                </form>
                         <% })} %>
                         </p>                
                     </div>

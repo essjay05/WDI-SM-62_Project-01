@@ -23,6 +23,7 @@ I have created a full stack app for "Girls Who Hike" for members to log in, crea
 #####Setting up the Database & Authentication:
 1. Created and set up my database and mLab.
 2. Set up the authentication.
+3. Set up the CRUD-able resource
 8. Did research, found a codepen that helped me figure out how to structure my divs using flex and grid.
 9. Implemented the code I was experimenting with into my grid for my portfolio section. ![Grid code](https://i.imgur.com/oz91BIa.png).
 10. Input placeholder medias so I can view/try to enable any JS or jQuery.

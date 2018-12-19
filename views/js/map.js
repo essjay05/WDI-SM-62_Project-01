@@ -1,15 +1,20 @@
+console.log('Loaded');
 
 
-let nearbyHikes = "https://www.hikingproject.com/data/get-trails?lat=34.0129&lon=-118.495&maxDistance=10&key=200396757-3d3fb5fb621382057bd6cea8231474d6";
-
-axios.get(nearbyHikes)
+function showFulllist() {
+// ADD LOCATIONS TO TAKEAHIKE.EJS
+axios.get('/api/hikes')
     .then(res => {
-        let hikeLoc = document.getElementById('map');
+        let list = res.data.hikes;
+        console.log(res.data.hikes);
+        let output = document.getElementById('info');
         // HIKE INFO
-        let laHikes = res.data.trails;
-        console.log(laHikes);
-        laHikes.forEach( i => {
-            // console.log(res.data.trails);
+        output.innerHTML('');
+        list.forEach( i => {
+            console.log(res.hikes);
+            let title = document.createElement('p');
+            
+            // THIS IS TO GET THE COORDINATES
             let lat = i.latitude;
             let lng = i.longitude;
             var latLng = new google.maps.LatLng(lat, lng);
@@ -24,7 +29,7 @@ axios.get(nearbyHikes)
             })
          })
     });
-
+}
 // CREATING MAP USING COORDINATES
 var map
     function initMap() {

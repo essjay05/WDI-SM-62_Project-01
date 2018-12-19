@@ -80,7 +80,10 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 app.use('/users', usersRouter)
-app.use('/hikes', hikesRouter)
+app.use('/api/hikes', hikesRouter)
+
+// HARD-CODED ROUTES/PATHS
+app.get('/api/hikes', (req, res) => { res.json( )})
 
 
 // LISTENING PORT

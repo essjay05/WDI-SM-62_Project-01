@@ -1,19 +1,41 @@
 // SET CONSTANTS
 const
     express = require('express'),
-    app = express(),
     hikesRouter = new express.Router(),
-    passport = require('passport'),
-    axios= require('axios');
+    usersRouter = require('../routes/usersRouter'),
+    Hike = require('../controllers/hikes'),
+    User = require('../models/User');
 
-// GET HIKES NEAR LOS ANGELES, CA from HIKING API
-hikesRouter.get('/takeahike', isLoggedIn, (req, res) => {
-        let nearbyHikes = "https://www.hikingproject.com/data/get-trails?lat=34.0129&lon=-118.495&maxDistance=10&key=200396757-3d3fb5fb621382057bd6cea8231474d6";  
-        axios.get(nearbyHikes)
-            .then(({ data }) => {
-            res.render('takeahike', data);
-        });
+
+// ROUTES
+// RENDER ROUTES:
+hikesRouter.get('/index', isLoggedIn, (req, res) => {
+    // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
+    res.render('takeahike', { user: req.user })
 });
+
+
+
+// INDEX
+// hikesRouter.get('/', Hike.index)
+
+// SHOW 1
+hikesRouter.get('/:id', Hike.show)
+
+// CREATE NEW HIKE
+hikesRouter.post('/', Hike.create)
+
+// ADD USER TO USERS ARRAY
+hikesRouter.patch('/:id/users', isLoggedIn, Hike.addUser);
+
+// REMOVE USER FROM USERS ARRAY
+hikesRouter.patch('/:id/users', isLoggedIn, Hike.removeUser);
+
+// DESTROY
+hikesRouter.delete('/:id', Hike.destroy)
+
+module.exports = hikesRouter;
+
 
 
 // CREATE GOOGLE MAP SHOWING EACH OF THE TRAIL LOCATIONS
