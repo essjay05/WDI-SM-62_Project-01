@@ -30,8 +30,16 @@ usersRouter.post('/signup', passport.authenticate('local-signup', {
 
 // SHOW PROFILE MUST BE LOGGED IN [READ] works :)
 usersRouter.get('/profile', isLoggedIn, (req, res) => {
-    // Render the user's profile ONLY when the user is logged in
-    res.render('profile', { user: req.user })
+    // Render the user's profile with the list of hikes they have completed
+    
+        User.findById(req.user._id)
+            .populate('hikes')
+            .exec((err, user) => {
+                console.log(user.hikes)
+                if (err) res.json({ success: false, err });
+                res.render('profile', { success: true, user });
+            })
+    // res.json({success: true, hike})
 });
 
 

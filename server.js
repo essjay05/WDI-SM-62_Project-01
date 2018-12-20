@@ -83,7 +83,7 @@ app.use('/users', usersRouter)
 app.use('/api/hikes', hikesRouter)
 
 // HARD-CODED ROUTES/PATHS
-app.get('/api/hikes', (req, res) => { res.json( )})
+// app.get('/api/hikes', (req, res) => { res.json( )})
 
 
 // LISTENING PORT
