@@ -48,9 +48,10 @@ module.exports = {
             hike.save(err => {
                 User.findById(user_id, (err, foundUser) => {
                     foundUser.hikes.push(hike.id);
+                    // foundUser.hikes = [];
                     foundUser.save(err => {
-                        if (err) res.json({ success: false, err });
-                        res.json({ success: true, hike })
+                        // if (err) res.json({ success: false, err });
+                        res.json({ success: true, hike, foundUser })
                     })
                 })
             })
