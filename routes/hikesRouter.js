@@ -2,34 +2,33 @@
 const
     express = require('express'),
     hikesRouter = new express.Router(),
-    usersRouter = require('../routes/usersRouter'),
-    Hike = require('../controllers/hikes'),
-    User = require('../models/User');
-
+    Hike = require('../controllers/hikes');
 
 // ROUTES
 // RENDER ROUTES:
-hikesRouter.get('/index', isLoggedIn, (req, res) => {
-    // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
-    res.render('takeahike', { user: req.user })
-});
+// hikesRouter.get('/index', isLoggedIn, Hike.index, (req, res) => {
+//     // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
+//     res.json('takeahike')
+// });
 
 
 
 // INDEX
-// hikesRouter.get('/', Hike.index)
+hikesRouter.get('/', Hike.index)
 
 // SHOW 1
 hikesRouter.get('/:id', Hike.show)
 
 // CREATE NEW HIKE
-hikesRouter.post('/', Hike.create)
+// hikesRouter.post('/', Hike.create)
 
+// USER/HIKE RELATIONSHIP ROUTES
+// INDEX USERS
 // ADD USER TO USERS ARRAY
-hikesRouter.patch('/:id/users', isLoggedIn, Hike.addUser);
+hikesRouter.post('/:id/users/', Hike.addUser);
 
 // REMOVE USER FROM USERS ARRAY
-hikesRouter.patch('/:id/users', isLoggedIn, Hike.removeUser);
+hikesRouter.patch('/users/:id', Hike.removeUser);
 
 // DESTROY
 hikesRouter.delete('/:id', Hike.destroy)

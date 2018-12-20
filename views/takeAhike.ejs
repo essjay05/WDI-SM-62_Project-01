@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <script src="../js/map.js"></script>    
+</head>
+<body>
 
 <!-- USER PROFILE PAGE -->
 <div class="jumbotron jumbotron-fluid">
@@ -16,26 +21,24 @@
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div id="info">
-                        <p class="lead">
-                        <% if (success) { %>
-                            <% hikes.forEach( i => { %>
-                                <h4 class="hikeObj"><%= i.name %> </h4>
-                                <p><%= i.length %> miles </p>
-                                <p><%= i.location %> </p>
-                                <p><%= i.summary %> </p>
-                                <p><%= i.latitude %> </p>
-                                <p><%= i.longitude %> </p>
-                                <p class="hikeEndObj"><a href=`<%= i.trailUrl %>`</a></p>
-                                <form method="post" action="/users/profile?_method=PATCH">
-                                    <button type="patch" class="btn-sm btn-success addUser col-2" name="addUser">
-                                        Completed
-                                        <% user.hikes.push(i.name); %>
-                                    </button>
-                                </form>
-                                <form method="post" action="/users/profile<%=s.?_method=PATCH">
-                                    <button type="patch" class="btn-sm btn-danger removeUser col-2" name="removeUser">Not Completed</button>
-                                </form>
-                        <% })} %>
+                        <p class="list">
+                                <% hikes.forEach( i => { %>
+                                    <h4 class="hikeObj"><%= i.name %> </h4>
+                                    <p><%= i.length %> miles </p>
+                                    <p><%= i.location %> </p>
+                                    <p><%= i.latitude %> </p>
+                                    <p><%= i.longitude %> </p>
+                                    <p class="hikeEndObj"><a href="<%= i.trailUrl %>"></a></p>
+                                    <form method="post" action="/users/profile?_method=PATCH">
+                                        <button type="patch" class="btn-sm btn-success addUser col-2" name="addUser">
+                                            Completed
+                                            
+                                        </button>
+                                    </form>
+                                    <form method="post" action="/users/profile?_method=PATCH">
+                                        <button type="patch" class="btn-sm btn-danger removeUser col-2" name="removeUser">Not Completed</button>
+                                    </form>
+                                <% }) %>
                         </p>                
                     </div>
                 </div>
@@ -43,4 +46,4 @@
         </div>
     </div>
 </div>
-    
+</body>

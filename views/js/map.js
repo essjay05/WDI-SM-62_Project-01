@@ -11,8 +11,28 @@ axios.get('/api/hikes')
         // HIKE INFO
         output.innerHTML('');
         list.forEach( i => {
-            console.log(res.hikes);
-            let title = document.createElement('p');
+            output.append(`
+            <div class="hikeBox">
+                <h4 class="hikeObj"><%= i.name %> </h4>
+                <p>${i.length} miles </p>
+                <p>${i.location} </p>
+                <p>${i.summary} </p>
+                <p>${i.latitude} </p>
+                <p>${i.longitude} </p>
+                <p class="hikeEndObj"><a href="${i.trailUrl}</a></p>
+                <form method="post" action="/users/profile${i}?_method=PATCH">
+                    <button type="patch" class="btn-sm btn-success addUser col-2" name="addUser">
+                        Completed
+                        ${user.hikes.push(i.name)}
+                    </button>
+                </form>
+                <form method="post" action="/users/profile${i}?_method=PATCH">
+                    <button type="patch" class="btn-sm btn-danger removeUser col-2" name="removeUser">
+                    Not Completed
+                    ${user.hikes.pop(i.name)}
+                    </button>
+                </form>
+            </div> `)
             
             // THIS IS TO GET THE COORDINATES
             let lat = i.latitude;

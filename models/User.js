@@ -15,7 +15,7 @@ const
         profilePhoto: String,
         signedWaiver: Boolean,
         hikes: [{
-            type: mongoose.Schema.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'Hike'
         }]
     }, {timestamps: true});

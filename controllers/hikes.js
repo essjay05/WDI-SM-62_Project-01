@@ -5,12 +5,12 @@ const { User, Hike } = require('../models');
 
 // CONTROLS
 module.exports = {
-    // index: (req, res) => {
-    //     Hike.find({}, (err, hikes) => {
-    //         if (err) res.json({ success: false, err });
-    //         res.render({ success: true }, 'takeahike');
-    //     })
-    // },
+    index: (req, res) => {
+        Hike.find({}, (err, hikes) => {
+            if (err) res.json({ success: false, err });
+            res.json({ success: true, hikes });
+        })
+    },
 
     show: (req, res) => {
         Hike.findById(req.params.id)
@@ -21,44 +21,61 @@ module.exports = {
             })
     },
 
-    create: (req, res) => {
-        Hike.create(req.body, (err, newHike) => {
-            if (err) res.json({ success: false, err });
-            res.json({ success: true, newHike });
-        })
-    },
+    // create: (req, res) => {
+    //     Hike.create(req.body, (err, newHike) => {
+    //         if (err) res.json({ success: false, err });
+    //         res.json({ success: true, newHike });
+    //     })
+    // },
 
     addUser: (req, res) => {
-        Hike.findById(req.params.id, (err, hike) => {
+        let { id } = req.params;
+        
+        // console.log(res)
+        // FOR VIEW TESTS
+        // let user_id = req.user.id
+        // FOR API TESTS
+        var user_id = "5c1ad42fb103b1905ad84c7b"  
+        Hike.findById(id, (err, hike) => {
             if (err) res.json({ success: false, err });
 
-            let newUser = new User(req.body);
-            newUser.hike = hike._id;
+            let user = hike.users.find(id => id == user_id);
+            if (user) res.json({ success: false, message: "User already completed." });
 
-            newUser.save(err => {
-                if (err) res.json({ success: false, err });
-                
-                hike.users.push(newUser);
-                hike.save((err, savedHike) => {
-                    if (err) res.json({ success: false, err });
-                    res.json({ success: true, savedHike });
+            hike.users.push(user_id)
+            // hike.users = [];
+        
+            hike.save(err => {
+                User.findById(user_id, (err, foundUser) => {
+                    foundUser.hikes.push(hike.id);
+                    foundUser.save(err => {
+                        if (err) res.json({ success: false, err });
+                        res.json({ success: true, hike })
+                    })
                 })
             })
         });
     },
 
     removeUser: (req, res) => {
-        Hike.findByIdAndRemove(req.params.id, (err, hike) => {
+        let { user_id, hike_id } = req.params;
+        Hike.findById(hike_id, (err, hike) => {
             if (err) res.json({ success: false, err });
 
-            let remUser = new User (req.body);
-            remUser.hike = hike._id;
+            // SET USER VARIABLE TO HIKE.USERS.ID
+            let user = hike.users.id(user_id);
 
-            remUser.save(err => {
+            // CHECK IF USER EXISTS
+            if (user) res.json({ success: false, message: "User already marked as completed." });
+            user.email = req.body.email;
+
+            // SAVE USER TO HIKE
+            user.save(err => {
                 if (err) res.json({ success: false, err });
-
-                hike.users.pop(remUser);
-                hike.save(( err, savedHike ) => {
+                res.json({ success: true, addedUser });
+                
+                hike.users.push(addedUser);
+                hike.save((err, savedHike) => {
                     if (err) res.json({ success: false, err });
                     res.json({ success: true, savedHike });
                 })
@@ -73,6 +90,4 @@ module.exports = {
             res.json({ success: true, deletedHike});
         })
     }
-    
-}
-
+};

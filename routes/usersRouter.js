@@ -34,6 +34,8 @@ usersRouter.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile', { user: req.user })
 });
 
+
+
 // RENDER FORM TO EDIT PROFILE
 usersRouter.get('/profile/edit', isLoggedIn, (req, res) => {
     res.render('editProfile');

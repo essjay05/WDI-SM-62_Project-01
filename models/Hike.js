@@ -14,7 +14,7 @@ const HikeSchema = new Schema ({
     latitude: Number,
     trailUrl: String,
     users: [{
-        type: mongoose.Schema.ObjectId, 
+        type: mongoose.Schema.Types.ObjectId, 
         ref: 'User'}]
 }, {timestamps: true})
 
