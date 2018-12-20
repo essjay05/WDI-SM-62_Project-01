@@ -1,6 +1,10 @@
 /* ENTER CSS STYLING TO SUPPLEMENT BOOTSTRAP HERE */
+.html {
+    color: white;
+}
+
 .heroImg {
-    background-image: url("https://i.imgur.com/q9rQwJ5.jpg");
+    background-image: url("https://i.imgur.com/dt2LiaX.jpg");
     width: 100vw;
     height: 100vh;
 }
