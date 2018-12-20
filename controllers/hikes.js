@@ -35,7 +35,7 @@ module.exports = {
         // FOR VIEW TESTS
         // let user_id = req.user.id
         // FOR API TESTS
-        var user_id = "5c1ad42fb103b1905ad84c7b"  
+        var user_id = "5c1ab5fddcec6584e3fbcd02"  
         Hike.findById(id, (err, hike) => {
             if (err) res.json({ success: false, err });
 
@@ -47,10 +47,11 @@ module.exports = {
         
             hike.save(err => {
                 User.findById(user_id, (err, foundUser) => {
+                    console.log(foundUser);
                     foundUser.hikes.push(hike.id);
                     // foundUser.hikes = [];
                     foundUser.save(err => {
-                        // if (err) res.json({ success: false, err });
+                        if (err) res.json({ success: false, err });
                         res.json({ success: true, hike, foundUser })
                     })
                 })
