@@ -6,15 +6,15 @@ const
 
 // ROUTES
 // RENDER ROUTES:
-// hikesRouter.get('/index', isLoggedIn, Hike.index, (req, res) => {
-//     // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
-//     res.json('takeahike')
-// });
+hikesRouter.get('/index', isLoggedIn, Hike.index, (req, res) => {
+    // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
+    res.render('takeahike')
+});
 
 
 
 // INDEX
-hikesRouter.get('/', Hike.index)
+// hikesRouter.get('/', Hike.index)
 
 // SHOW 1
 hikesRouter.get('/:id', Hike.show)

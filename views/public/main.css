@@ -1,6 +1,6 @@
 /* ENTER CSS STYLING TO SUPPLEMENT BOOTSTRAP HERE */
-.hero {
+.heroImg {
     background-image: url("https://i.imgur.com/q9rQwJ5.jpg");
-    width: auto;
+    width: 100vw;
     height: 100vh;
 }

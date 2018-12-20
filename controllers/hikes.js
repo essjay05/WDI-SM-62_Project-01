@@ -8,7 +8,7 @@ module.exports = {
     index: (req, res) => {
         Hike.find({}, (err, hikes) => {
             if (err) res.json({ success: false, err });
-            res.json({ success: true, hikes });
+            res.render('takeahike', { success: true, hikes });
         })
     },
 
