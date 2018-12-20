@@ -13,15 +13,15 @@ module.exports = {
     },
 
 
-    show: (req, res) => {
-        User.findById(req.params.id)
-            .populate('hikes')
-            .exec((err, user) => {
-                console.log(user)
-                if (err) res.json({ success: false, err });
-                res.json({ success: true, user });
-            })
-    },
+    // show: (req, res) => {
+    //     User.findById(req.params.id)
+    //         .populate('hikes')
+    //         .exec((err, user) => {
+    //             console.log(user)
+    //             if (err) res.json({ success: false, err });
+    //             res.json({ success: true, user });
+    //         })
+    // },
 
     // create: (req, res) => {
     //     Hike.create(req.body, (err, newHike) => {
@@ -34,26 +34,24 @@ module.exports = {
         let { id } = req.params;
         // console.log(res)
         // FOR VIEW TESTS
-        // let user_id = req.user.id
+        let user_id = req.user.id
         // FOR API TESTS
-        var user_id = "5c1ad42fb103b1905ad84c7b"  
+        // var user_id = "5c1ad42fb103b1905ad84c7b"  
         Hike.findById(id, (err, hike) => {
             if (err) res.json({ success: false, err });
-
-            let user = hike.users.find(id => id == user_id);
-            if (user) res.json({ success: false, message: "User already completed." });
-
-            else hike.users.push(user_id)
+            console.log(hike);
+            let foundUser = hike.users.find(id => id == user_id);
+            if (foundUser) res.json({ success: false, message: "User already completed." });
+            hike.users.push(user_id);
             // hike.users = [];
             
             hike.save(err => {
-                User.findById(user_id, (err, foundUser) => {
-                    console.log(hike);
-                    foundUser.hikes.push(hike);
-                    // foundUser.hikes = [];
-                    foundUser.save(err => {
+                User.findById(user_id, (err, user) => {
+                    user.hikes.push(hike);
+                    // user.hikes = [];
+                    user.save(err => {
                         if (err) res.json({ success: false, err });
-                        res.render('profile', { success: true, hike, user });
+                        res.redirect('/users/profile');
                     })
                 })
             })

@@ -21,10 +21,10 @@ const
 
 // ----------- CRUD For HikesRouter [ADMIN ONLY]: ----------- //
 // INDEX
-    hikesRouter.get('/', Hike.index)
+    // hikesRouter.get('/', Hike.index)
 
 // SHOW 1
-    hikesRouter.get('/:id', Hike.show)
+    // hikesRouter.get('/:id', Hike.show)
 
 // CREATE NEW HIKE
     // hikesRouter.post('/', Hike.create)
