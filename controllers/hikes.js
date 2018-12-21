@@ -9,7 +9,7 @@ module.exports = {
     index: (req, res) => {
         Hike.find({}, (err, hikes) => {
             if (err) res.json({ success: false, err })
-            res.render('takeahike', { success: true, hikes });
+            res.render('takeAhike', { success: true, hikes });
         })
     },
 
