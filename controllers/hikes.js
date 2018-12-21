@@ -8,7 +8,7 @@ const Hike = require('../models/Hike');
 module.exports = {
     index: (req, res) => {
         Hike.find({}, (err, hikes) => {
-            if (err) res.json({ success: false, err });
+            if (err) res.json({ success: false, err })
             res.render('takeahike', { success: true, hikes });
         })
     },

@@ -51,20 +51,11 @@
                             <p><%= i.latitude %> </p>
                             <p><%= i.longitude %> </p>
                             <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
-                            <!-- <%= i.users.includes(toString(currentUser.id)) %> -->
-            
-                            <% if (i.users.find(user => toString(user) === currentUser._id)) { %>
-                                <!-- <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
-                                    <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
-                                </form> -->
-                                <h1>NO CAN DO </h1>
-                            <% } else { %>
                                 <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
                                     <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
                                 </form>
-                            <% } %>
+                            <% }) %>
                         </li>
-                    <% }) %>
                     </ul>
                 </p>
               

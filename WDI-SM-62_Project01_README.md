@@ -29,14 +29,18 @@ I have created a full stack app for "Girls Who Hike" for members to log in, crea
 
 #####Setting up the functionality:
 1. Created a forEach loop to iterate through the hikes in my database to show the data on my "Take a Hike" page.
-2. Created a map.js to write the function to embed my google map of all the hike locations.
+2. Created a map.js to write the function to embed my google map of all the hike locations... unfortunately I was unable to get the locations to populate on the map despite being able to ping the Google Maps API to create a map.
 3. Connected the path on the buttons for each hike location to the addUser method.
 4. Upon connecting the functionality for the addUser/addHike button, enabled it so it populates as a completed hike on the User's Profile page.
 
 #####Styled the site:
 1. Tested out EJS and bootstrap to figure out how to utilize those tools.
-2. 
+2. Used EJS, Bootstrap, and CSS to style my pages.
 
+#####Pushed to Heroku:
+1. Saved to Github during each major save/change.
+2. Saved and deployed to Heroku successfully earlier in the week... unfortunately upon attempting to deploy on Thursday it came across some errors.
+3. Managed to deploy to Heroku but upon testing it calls an internal error when clicking on "Take a Hike" page.
 
 8. Did research, found a codepen that helped me figure out how to structure my divs using flex and grid.
 9. Implemented the code I was experimenting with into my grid for my portfolio section. ![Grid code](https://i.imgur.com/oz91BIa.png).

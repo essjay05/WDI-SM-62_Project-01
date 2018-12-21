@@ -7,11 +7,11 @@ const
 // ROUTES
 // RENDER ROUTES:
 // RENDER THE CSC HIKE LIST ONLY WHEN THE USER IS LOGGED IN
-    hikesRouter.get('/index', Hike.index)
+    hikesRouter.get('/index', isLoggedIn, Hike.index)
 
 // USER/HIKE RELATIONSHIP ROUTES
     // ADD USER TO USERS ARRAY
-    hikesRouter.post('/:id/users/', Hike.addUser)
+    hikesRouter.post('/:id/users/', isLoggedIn, Hike.addUser)
 
     // REMOVE USER FROM USERS ARRAY
         // hikesRouter.patch('/users/:id', Hike.removeUser);
