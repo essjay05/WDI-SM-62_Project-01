@@ -1,34 +1,39 @@
 <!-- SIGN UP PAGE FORM TO RETRIEVE USER PROFILE DATA -->
+<div class="signupHero">
 <div class="col-sm-6 offset-md-3 title">
-    <h1 class="title">Sign Up</h1>
+    <h1 class="title top pt-4">Sign Up</h1>
     <form method="post" action="/users/signup">
-        <div class="form-group">
-            <label for="name">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName">
+        <div class="form-group signUp">
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName">
         </div>
-        <div class="form-group">
-            <label for="name">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName">
+        <div class="form-group signUp">
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="lastName">
         </div>
-        <div class="form-group">
-            <label for="email">Email (your email will become your username)</label>
-            <input type="email" class="form-control" id="email" name="email">
+        <div class="form-group signUp">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email (Your email will become your username)">
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
+        <div class="form-group signUp">
+            <input type="password" class="form-control" id="password" name="password" placeholder="password">
         </div>
-        <div class="form-group">
-            <label for="name">Location</label>
-            <input type="text" class="form-control" id="location" name="location">
+        <div class="form-group signUp">
+            <input type="text" class="form-control" id="location" name="location" placeholder="Location (City / State)">
         </div>
-        <div class="form-group">
-            <label for="name">Skill Level</label>
-            <input type="text" class="form-control" id="skillLevel" name="skillLevel">
+        <div class="input-group mb-3 signUp">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Skill Level</label>
+            </div>
+            <select class="custom-select" value="skillLevel">
+                <option selected>Choose...</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Expert">Expert</option>
+            </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary signUp">Submit</button>
     </form>
     <hr>
+    
     <p class="subtitle">Or, <a href="/users/login">Log In</a></p>
     <p class="subtitle">Go back <a href="/">home</a>.</p>
+</div>
 </div>

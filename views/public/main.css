@@ -7,6 +7,15 @@
 p, .blurb {
     font-family: "Montserrat", sans-serif;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: red;
+    cursor: pointer;
+}
+
 
 /* NAV BAR */
 .logout {
@@ -14,21 +23,30 @@ p, .blurb {
 }
 /* INDEX/SPLASH/ABOUT PAGE */
 .heroImg {
-    background-image: url("https://i.imgur.com/dt2LiaX.jpg");
-    width: 100vw;
+    background-image: url("https://i.imgur.com/q9rQwJ5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
     height: 100vh;
+    color: white;
 }
 /* TAKE A HIKE PAGE */
+.hikeHero {
+    background-image: url("https://i.imgur.com/WOHGfkY.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    color: black;
+}
 .cscBannerTitle {
     width: 100%;
     font-size: 6rem;
-    text-align: center;   
+    text-align: center;
 }
-.jumbotron {
-    padding-top: rem;
-}
-.hike {
-    margin-bottom: 2rem;
+.card {
+    padding: 1rem 0;
+    opacity: 0.75;
 }
 
 .example-1 {
@@ -38,7 +56,46 @@ p, .blurb {
 }
 
 /* EDIT PAGE */
+.editHero {
+    background-image: url("https://i.imgur.com/4D7RKpY.jpg");
+    background-position: center;
+    background-repeat: repeat;
+    width: auto;
+    height: 100vh;
+    color: white;
+}
 .editBtn {
     width: 9em;
     margin-top: 1rem;
+}
+
+/* SIGN UP PAGE */
+.signupHero {
+    background-image: url("https://i.imgur.com/jRvLYL5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 125vh;
+    color: white;
+    opacity: .8;
+}
+
+.signUp {
+    padding: .75rem;
+}
+
+/* PROFILE PAGE */
+.profileHero {
+    background-image: url("https://i.imgur.com/u1n6FNe.jpg");
+    background-position: left;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 125vh;
+    color: white;
+}
+.jumbotron {
+    padding-top: 1rem;
+    margin: 0;
+    opacity: .75;
+    color: black;
 }

@@ -24,48 +24,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-s-12 col-md-6">
-                    
+                        
                     <div id="googleMap" style="width:450px;height:450px;">
                     </div>
-                        
-                
+                            
+                    
                 </div>
                 <div class="col-s-12 col-md-6">
-                    <div id="info">
-                        <!-- Grid row -->
-<div class="row">
+                <div id="info">
+                <!-- Grid row -->
 
-        <!-- Grid column -->
-        <div class="col-s-12 md-6">
+
+                <!-- Grid column -->
+                <div class="col-s-12 md-6">
       
-          <!-- Exaple 1 -->
-          <div class="card example-1 scrollbar-teal">
-            <div class="card-body">
-                <h2 id="section1"><strong class="title">Hike List: Spring 2019</strong></h4>
-                <p class="list">
-                    <ul class="hikeList">
-                    <% hikes.forEach( i => { %>
-                        <li class="hike"><h3 class="hikeObj title""><%= i.name %> </h3>
-                            <p><%= i.length %> </p>
-                            <p><%= i.location %> </p>
-                            <p><%= i.latitude %> </p>
-                            <p><%= i.longitude %> </p>
-                            <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
-                                <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
-                                    <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
-                                </form>
-                            <% }) %>
-                        </li>
-                    </ul>
-                </p>
-              
-            </div>
-          </div>
-          <!-- Exaple 1 -->
-      
-        </div> 
-                                        
+                    <!-- Example 1 -->
+                    <div class="card example-1 scrollbar-teal">
+                        <div class="card-body">
+                            <h2 id="section1"><strong class="title">Hike List: Spring 2019</strong></h2>
+                                <p class="blurb">Click the 'Done!' button to mark your hike as complete.</p>
+                            <p class="list">
+                                <ul class="hikeList">
+                                <% hikes.forEach( i => { %>
+                                    <li class="hike"><h3 class="hikeObj title""><%= i.name %> </h3>
+                                        <p><%= i.length %> </p>
+                                        <p><%= i.location %> </p>
+                                        <p><%= i.latitude %> </p>
+                                        <p><%= i.longitude %> </p>
+                                        <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
+                                            <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
+                                                <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
+                                            </form>
+                                        <% }) %>
+                                    </li>
+                                </ul>
+                            </p>
+                        
+                        </div>     
                     </div>
+                </div>
+                </div>  
                 </div>
             </div>
         </div>

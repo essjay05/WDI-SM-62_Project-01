@@ -1,27 +1,25 @@
 <!-- USER PROFILE PAGE -->
-<div class="jumbotron jumbotron-fluid">
+<div class="profileHero">
+  <div class="jumbotron jumbotron-fluid ">
     <div class="container">
-      <p class="lead">
-      <% if (loggedIn) { %>
-          <h1 class="title"> Hello, <%= currentUser.firstName %>! </h2>
-      <% } %>    
-      <!-- USER PROFILE -->
-          <p class="blurb"><%= currentUser.email %> </p>
-          <h5 class="blurb">Home Base: <%= currentUser.location %></h5>
-          <h5 class="blurb">Hiking Skill Level: <%= currentUser.skillLevel %></h5>
-          <h5 class="blurb">COMPLETED City Slicker Challenge Hikes:</h5>
-          <ul class="blurb">
-              <% user.hikes.forEach( i => { %>
-              <li><p class="blurb"><a href="<%= i.trailUrl %>" target="_blank"> <%= i.name %></a></p></li>
-              <% }) %>
-          </ul>
-      </p>
-</div>
-
-<div class="hikeContainer">
-    <div class="row"> 
-      
+        <p class="lead">
+        <% if (loggedIn) { %>
+            <h1 class="title"> Hello, <%= currentUser.firstName %>! </h2>
+        <% } %>    
+        <!-- USER PROFILE -->
+            <p class="blurb"><%= currentUser.email %> </p>
+            <h5 class="blurb">Home Base: <%= currentUser.location %></h5>
+            <h5 class="blurb">Hiking Skill Level: <%= currentUser.skillLevel %></h5>
+            <br>
+            <h5 class="blurb">COMPLETED City Slicker Challenge Hikes:</h5>
+            <ul class="blurb">
+                <% user.hikes.forEach( i => { %>
+                <li><p class="blurb"><a href="<%= i.trailUrl %>" target="_blank"> <%= i.name %></a></p></li>
+                <% }) %>
+            </ul>
+        </p>
     </div>
+  
 </div>
 
 
