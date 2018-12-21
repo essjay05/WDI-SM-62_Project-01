@@ -7,9 +7,6 @@ axios.get('/api/hikes')
     .then(res => {
         let list = res.data.hikes;
         console.log(res.data.hikes);
-        let output = document.getElementById('info');
-        // HIKE INFO
-        output.innerHTML('');
         list.forEach( i => {
             // THIS IS TO GET THE COORDINATES
             let lat = i.latitude;
@@ -27,15 +24,7 @@ axios.get('/api/hikes')
          })
     });
 }
-// CREATING MAP USING COORDINATES
-var map
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 34.013, lng: -118.495},
-            zoom: 8
-        })
-    }
-initMap()
+
         
 // -------- POTENTIAL BONUS FEATURE ------------- //
 // Update COMPLETE/INCOMPLETE status

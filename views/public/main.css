@@ -1,8 +1,44 @@
 /* ENTER CSS STYLING TO SUPPLEMENT BOOTSTRAP HERE */
 
+/* FONTS */
+.title, .subtitle {
+    font-family: "Unica One", sans-serif;
+}
+p, .blurb {
+    font-family: "Montserrat", sans-serif;
+}
 
+/* NAV BAR */
+.logout {
+    margin: 4.5px;
+}
+/* INDEX/SPLASH/ABOUT PAGE */
 .heroImg {
     background-image: url("https://i.imgur.com/dt2LiaX.jpg");
     width: 100vw;
     height: 100vh;
+}
+/* TAKE A HIKE PAGE */
+.cscBannerTitle {
+    width: 100%;
+    font-size: 6rem;
+    text-align: center;   
+}
+.jumbotron {
+    padding-top: .5rem;
+}
+.hike {
+    margin-bottom: 2rem;
+}
+
+.example-1 {
+    position: relative;
+    overflow-y: scroll;
+    height: 450px;
+}
+
+/* EDIT PAGE */
+.editBtn {
+    width: 9em;
+    margin-top: 1rem;
 }

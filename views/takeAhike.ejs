@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-<script>
-    
-    // GENERATE GOOGLE MAP ON PAGE
-    function initialize() {
-        var mapProp = {
-            center:new google.maps.LatLng(34.013, -118.495),
-            zoom:8,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>   
-</head>
+    <head>
+    <script>function initialize() {
+            var mapProp = {
+                center:new google.maps.LatLng(34.013, -118.495),
+                zoom:8,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+            var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    </head>
 <body>
 
 <!-- USER PROFILE PAGE -->
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid hikeHero">
     <div class="container">
         
-        <h1>GWH City Slicker Challenge</h1> 
-        <h3>Hike List: Spring 2019</h3>
+        <h1 class="title cscBannerTitle">GWH City Slicker Challenge</h1> 
+        <!-- <h3 class="subtitle">Hike List: Spring 2019</h3> -->
         
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-md-6">
+                <div class="col-s-12 col-md-6">
                     
                     <div id="googleMap" style="width:450px;height:450px;">
                     </div>
                         
                 
                 </div>
-                <div class="col-xs-12 col-md-6">
+                <div class="col-s-12 col-md-6">
                     <div id="info">
-                        <p class="list">
-                                <ul>
-                                <% hikes.forEach( i => { %>
-                                    <li><h4 class="hikeObj"><%= i.name %> </h4>
-                                    <p><%= i.length %> </p>
-                                    <p><%= i.location %> </p>
-                                    <p><%= i.latitude %> </p>
-                                    <p><%= i.longitude %> </p>
-                                    <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
-                                    <!-- <%= i.users.includes(toString(currentUser.id)) %> -->
-                    
-                                    <% if (i.users.find(user => toString(user) === currentUser._id)) { %>
-                                        <!-- <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
-                                            <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
-                                        </form> -->
-                                        <h1>NO CAN DO </h1>
-                                    <% } else { %>
-                                        <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
-                                            <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
-                                        </form>
-                                    <% } %>
-                                    <form method="post" action="/api/hikes/<%= i._id %>?_method=PUT" >
-                                        <button type="submit" class="btn-sm btn-danger removeUser col-2" name="removeUser"> x</button>
-                                    </form>
-                                    </li>
-                                <% }) %>
-                                </ul>
-                        </p>                
+                        <!-- Grid row -->
+<div class="row">
+
+        <!-- Grid column -->
+        <div class="col-s-12 md-6">
+      
+          <!-- Exaple 1 -->
+          <div class="card example-1 scrollbar-teal">
+            <div class="card-body">
+                <h2 id="section1"><strong class="title">Hike List: Spring 2019</strong></h4>
+                <p class="list">
+                    <ul class="hikeList">
+                    <% hikes.forEach( i => { %>
+                        <li class="hike"><h3 class="hikeObj title""><%= i.name %> </h3>
+                            <p><%= i.length %> </p>
+                            <p><%= i.location %> </p>
+                            <p><%= i.latitude %> </p>
+                            <p><%= i.longitude %> </p>
+                            <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
+                            <!-- <%= i.users.includes(toString(currentUser.id)) %> -->
+            
+                            <% if (i.users.find(user => toString(user) === currentUser._id)) { %>
+                                <!-- <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
+                                    <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
+                                </form> -->
+                                <h1>NO CAN DO </h1>
+                            <% } else { %>
+                                <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
+                                    <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
+                                </form>
+                            <% } %>
+                        </li>
+                    <% }) %>
+                    </ul>
+                </p>
+              
+            </div>
+          </div>
+          <!-- Exaple 1 -->
+      
+        </div> 
+                                        
                     </div>
                 </div>
             </div>

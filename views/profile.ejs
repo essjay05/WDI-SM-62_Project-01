@@ -3,16 +3,16 @@
     <div class="container">
       <p class="lead">
       <% if (loggedIn) { %>
-          <h2> Hello, <%= currentUser.firstName %>! </h2>
+          <h1 class="title"> Hello, <%= currentUser.firstName %>! </h2>
       <% } %>    
       <!-- USER PROFILE -->
-          <p><%= currentUser.email %> </p>
-          <h5>Home Base: <%= currentUser.location %></h5>
-          <h5>Hiking Skill Level: <%= currentUser.skillLevel %></h5>
-          <h5>COMPLETED City Slicker Challenge Hikes:</h5>
-          <ul>
+          <p class="blurb"><%= currentUser.email %> </p>
+          <h5 class="blurb">Home Base: <%= currentUser.location %></h5>
+          <h5 class="blurb">Hiking Skill Level: <%= currentUser.skillLevel %></h5>
+          <h5 class="blurb">COMPLETED City Slicker Challenge Hikes:</h5>
+          <ul class="blurb">
               <% user.hikes.forEach( i => { %>
-              <li><p class="hikeObj"><a href="<%= i.trailUrl %>" target="_blank"> <%= i.name %></a></p></li>
+              <li><p class="blurb"><a href="<%= i.trailUrl %>" target="_blank"> <%= i.name %></a></p></li>
               <% }) %>
           </ul>
       </p>

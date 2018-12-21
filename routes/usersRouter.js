@@ -34,16 +34,15 @@ usersRouter.get('/profile', isLoggedIn, (req, res) => {
     User.findById(req.user._id)
         .populate('hikes')
         .exec((err, user) => {
-            console.log(user.hikes)
             if (err) res.json({ success: false, err });
             res.render('profile', { success: true, user });
     })
 });
 
 // SHOW ABOUT CITY SLICKER CHALLENGE MUST BE LOGGED IN [READ] works :)
-usersRouter.get('/about', isLoggedIn, (req, res) => {
-    res.render('about', { success: true, user });
-});
+// usersRouter.get('/about', isLoggedIn, (req, res) => {
+//     res.render('about', { success: true, user });
+// });
 
 
 
@@ -56,12 +55,6 @@ usersRouter.get('/profile/edit', isLoggedIn, (req, res) => {
 // UPDATE PROFILE [UPDATE] works :)
 usersRouter.patch('/profile', isLoggedIn, (req, res) => {
     // CHECK TO SEE IF THE REQUEST BODY HAS A TRUTHY PASSWORD KEY (MEANING THE USER IS TRYING TO MODIFY PASSWORD)
-    if(!req.body.firstName) delete req.body.firstName;
-    if(!req.body.lastName) delete req.body.lastName;
-    if(!req.body.email) delete req.body.email;
-    if(!req.body.password) delete req.body.password;
-    if(!req.body.location) delete req.body.location;
-    if(!req.body.skillLevel) delete req.body.skillLevel;
     Object.assign(req.user, req.body);
     req.user.save(( err, updatedUser) => {
         if (err) console.log(err);

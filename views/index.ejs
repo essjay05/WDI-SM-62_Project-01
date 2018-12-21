@@ -1,23 +1,65 @@
 <!-- INSERT MAIN/HOME/SPLASH HTML BODY HERE -->
 <!-- PUT USERNAME/PASSWORD ENTRY IN TOP NAV BAR -->
 <div class="heroImg">
-      <div class="col-sm-6 offset-md-3">
-            <h1>Log In</h1>
+      <div class="row justify-content-md-center">
+            <div class="gwhAbout col-xs-12 col-md-5">
+                  <h1 class="title">About GWHLA</h1>
+                  <h3 class="subtitle">One Community | One Mission</h3>
+                  <p class="blurb">Creating a community of women who can connect, network and discover together through our local trails.</p>
+                  <i class="fas fa-sort-down"> City Slicker Challenge</i>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                  <h1 class="title">Log In</h1>
 
-
-            <form method="post" action="/users/login" style="width: 300px;">
-                  <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" >
-                  </div>
-                  <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                  </div>
-                  <button type="submit" class="btn btn-info">Submit</button>
-            </form>
-            <hr>
-            <p>Or, <a href="/users/signup">Sign Up</a></p>
-            <p>Go back <a href="/">home</a>.</p>
+                  <form method="post" action="/users/login" style="width: 300px;">
+                        <div class="form-group">
+                              <label for="email" class="subtitle">Email</label>
+                              <input type="email" class="form-control" id="email" name="email" >
+                        </div>
+                        <div class="form-group">
+                              <label for="password" class="subtitle">Password</label>
+                              <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <button type="submit" class="btn btn-info subtitle">Submit</button>
+                  </form>
+                  <hr>
+                  <h3 class="subtitle">Or, <a href="/users/signup" class="subtitle">Sign Up</a></h3>
+                  <h3 class="subtitle">Go back <a href="/" class="subtitle">home</a>.</h3>
+            </div> 
       </div>
 </div>
+<div class="arrowDwn">
+      <i class="fas fa-sort-down"></i>
+</div>
+      <div id="cscInfo" class="container col-l-12">  
+            <div class="cscAbout justify-content-md-center">
+                  <img src="https://static1.squarespace.com/static/58d0a17eb3db2bea2628c1d3/t/5a4805d924a694278ed63a62/1514669539046/CSC+2018.png?format=750w"/>
+                  <div class="cscIntro">
+                        <h1 class="title">The #CitySlickerChallenge</h1>
+                        <h3 class="subtitle">Created to get more GWH members out on the trails, while giving them a chance to pocket $1,000 at the same time!</h3>
+                        <div class="blurb">
+                              <p class="blurb">Originally created within the Los Angeles chapter, the City Slicker Challenge began as a simple 'group challenge' that has taken on a mind of its own among the Girls Who Hike chapters.</p>
+                              <p class="blurb"> The idea is quite simple:</p>
+                              <p class="blurb">You have 60 days to complete a designated list of 60 miles.  The first 60 girls to complete the 60 miles are entered into a drawing for $1,000.</p>
+                        </div>      
+                  </div>
+                  <div class="cscBreakdown">
+                       
+                        <h3><ul class="subtitle">Challenge Breakdown:</ul></h3>
+                        <div class="blurb">
+                              <li>Any Girls Who Hike member can register up to 11:59pm on the date prior to the beginning of the challenge.</li>
+                              <li>At 12:00am on the first day of the challenge, every participant receives a Registration Packet including the following:
+                                    <li>Official Trail List</li>
+                                    <li>Trail Information/Trail Maps</li>
+                                    <li>Checkpoint Photo Instructions</li>
+                                    <li>Submission Instructions</li>
+                              </li>
+                              <li>All registered members then have <em>60 days</em> to complete the challenge. You can complete the trails out of order, you can knock out multiple in one day, you can save them all for the weekend (shout out to you 9-5ers), whatever gets the job done!
+                                    <p>Members are encouraged to complete the challenge together, since the first 60 participants who complete the challenge are entered to win the $1,000 cash prize. <i>There are no first, second, third place prizes in this challenge. First 60 who complete the challenge win the same thing -- an entry into the cash drawing!</i></p>
+                              </li>
+                              <li>On Day 61 (the first day after the challenge ends), the Finisher's List is announced and posted within the challenge's closed Facebook chapter. <em> Participants have 24 hours to clear any issues with this Finisher's List, so please check carefully.</em></li>
+                              <li>On Day 62, the cash prize winner is drawn on Facebook live, within the chapter's closed Facebook group, names out of a hat style so there are no discrepancies on the winner.</li>
+                        </div>
+                  </div>
+            </div>
+      </div>

@@ -42,6 +42,7 @@ const store = new MongoDBStore({
 // MIDDLEWARE
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public', 'views')));
+app.use(express.static('./'));
 app.use(express.static(__dirname + '/views'))
 app.use(logger('dev')) //LOG INCOMING REQUESTS TO TERMINAL
 app.use(cookieParser()) // INTERPRET COOKIES THAT ARE ATTACHED TO REQUESTS

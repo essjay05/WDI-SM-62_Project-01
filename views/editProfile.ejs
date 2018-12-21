@@ -1,36 +1,36 @@
-<div class="col-sm-6 offset-md-3">
-        <h1>Edit Profile</h1>
-        <form method="post" action="/users/profile?_method=PATCH">
+<div class="col-sm-6 offset-md-3 title"">
+        <h1 class="title">Edit Profile</h1>
+        <form method="post" action="/users/profile?_method=PATCH" class="title">
             <div class="form-group">
                 <label for="name">First Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="<%= currentUser.firstName %>">
+                <input type="text" class="form-control" id="firstName" name="firstName" value="<%= currentUser.firstName %>">
             </div>
             <div class="form-group">
                 <label for="name">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="<%= currentUser.lastName %>">
+                <input type="text" class="form-control" id="lastName" name="lastName" value="<%= currentUser.lastName %>">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="<%= currentUser.email %>">
+                <input type="email" class="form-control" id="email" name="email" value="<%= currentUser.email %>">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="*************">
+                <input type="password" class="form-control" id="password" name="password" value="*************">
             </div>
             <div class="form-group">
                 <label for="name">Location</label>
-                <input type="text" class="form-control" id="location" name="location" placeholder="<%= currentUser.location %>">
+                <input type="text" class="form-control" id="location" name="location" value="<%= currentUser.location %>">
             </div>
             <div class="form-group">
                 <label for="name">Skill Level</label>
-                <input type="text" class="form-control" id="skillLevel" name="skillLevel" placeholder="<%= currentUser.skillLevel %>">
+                <input type="text" class="form-control" id="skillLevel" name="skillLevel" value="<%= currentUser.skillLevel %>">
             </div>
-            <button type="submit" class="btn btn-primary">Submit Changes</button>
-        
+            <button type="submit" class="btn btn-primary editBtn">Submit Changes</button>
         </form>
-        <form method="post" action="/users/profile?_method=DELETE">
-            <button type="delete" class="btn btn-danger deleteUser col-3">Delete Profile</button>
-        </form>
+            <form method="post" action="/users/profile?_method=DELETE">
+                <button type="delete" class="btn btn-danger deleteUser col-3 editBtn">Delete Profile</button>
+            </form>
+            
         <hr>
-        <p>Go back to your <a href="/users/profile">profile</a>.</p>
+        <p class="subtitle">Go back to your <a href="/users/profile">profile</a>.</p>
     </div>
