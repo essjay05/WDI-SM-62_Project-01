@@ -1,7 +1,8 @@
 // ADD A HIKES CONTROLLER
 
 // REQUIRE HIKES MODEL
-const { User, Hike } = require('../models');
+const User = require('../models/User');
+const Hike = require('../models/Hike');
 
 // CONTROLS
 module.exports = {
