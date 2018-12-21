@@ -60,7 +60,8 @@ Currently the model for submitting your completed hikes is to put together an em
 2. They would submit a request to pull a copy of my branch for my project.
 3. Upon approval they would use the clone link to open/download my project.
 4. They would then run npm init -y (to initiate node).
-5. They would run npm install --save + (express, mongoose, morgan, .env, 
+5. They would run npm install --save + (express, mongoose, morgan, dotenv, bcrypt-nodejs, connect-flash, connect-mongodb-session, cookie-parser,ejs, express-ejs-laouts, express-session, method-override, passport, & passport-local.
+6. 
 
 ##Unsolved Problems:
 * Upon clicking a hike a second time (if it has already been clicked) while it does lead you to a 404 page saying the hike has already been clicked it STILL adds it to the Hike's Users Array and vice versa... I want to add two to three functions to this: disable the button upon clicking, enable the undo/remove User button, and/or toggle the button so it's like a like button so it can switch between the two functions of complete/incomplete.
@@ -74,7 +75,7 @@ Currently the model for submitting your completed hikes is to put together an em
 ## Wins :)
 *Got my authentication and database set up pretty early on and fully functioning CRUD for my User model Schema !.
 *Got the add User button so that it pushes the Hike into the User array and is displayed on the User's profile page.
-
+*Was able to use a Card-Body Scroll for my list of hikes so you can scroll through the hikes to stay next to the map.
 
 ### Credits:
 *Joy Serquiña
