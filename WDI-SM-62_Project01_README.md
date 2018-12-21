@@ -23,7 +23,19 @@ I have created a full stack app for "Girls Who Hike" for members to log in, crea
 #####Setting up the Database & Authentication:
 1. Created and set up my database and mLab.
 2. Set up the authentication.
-3. Set up the CRUD-able resource
+3. Set up the CRUD-able resource for my User Model Schema.
+4. Set up the CRUD-able resource for my Hike model Schema.
+5. Connected my front-end and back-end.
+
+#####Setting up the functionality:
+1. Created a forEach loop to iterate through the hikes in my database to show the data on my "Take a Hike" page.
+2. Created a map.js to write the function to embed my google map of all the hike locations.
+3. Connected the path on the buttons for each hike location to the addUser method.
+4. Upon connecting the functionality for the addUser/addHike button, enabled it so it populates as a completed hike on the User's Profile page.
+
+#####Styled the site:
+1. Tested out EJS and bootstrap to figure out how to utilize those tools.
+2. 
 
 
 8. Did research, found a codepen that helped me figure out how to structure my divs using flex and grid.
