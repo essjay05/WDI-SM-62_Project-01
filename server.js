@@ -14,7 +14,7 @@ const
     MongoDBStore = require('connect-mongodb-session')(session),
     passport = require('passport'),
     passportConfig = require('./services/auth'),
-    // path = require('path'),
+    path = require('path'),
     usersRouter = require('./routes/usersRouter.js'),
     hikesRouter = require('./routes/hikesRouter.js'),
     methodOverride = require('method-override'),
@@ -40,6 +40,8 @@ const store = new MongoDBStore({
 // require('./db');
 
 // MIDDLEWARE
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public', 'views')));
 app.use(express.static(__dirname + '/views'))
 app.use(logger('dev')) //LOG INCOMING REQUESTS TO TERMINAL
 app.use(cookieParser()) // INTERPRET COOKIES THAT ARE ATTACHED TO REQUESTS

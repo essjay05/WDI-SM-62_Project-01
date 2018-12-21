@@ -1,21 +1,13 @@
-<!-- USER PROFILE PAGE -->
+<!-- HIKE ALREADY COMPLETED... reroute message PAGE -->
 <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <p class="lead">
           <% if (loggedIn) { %>
               <h2> Hello, <%= currentUser.firstName %>! </h2>
-          <% } %>    
-          <!-- USER PROFILE -->
-              <%= currentUser.email %> | User Id: <%= currentUser._id %>
-              <br><%= currentUser.location %>
-              <br><%= currentUser.skillLevel %>
-              <br>Completed Local Hikes: <%= currentUser.hikes.name %>    
-          </p>
-    </div>
+              <h4> You have already completed this form.  Please click <a href="/users/profile">HERE</a> to go back to your profile page.</h4>
+          <% } %>         
+        </div>
     
     <div class="hikeContainer">
-        <div class="row"> 
-          
-        </div>
+        <div class="row">      
     </div>
-    
+</div>

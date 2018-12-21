@@ -40,9 +40,11 @@ module.exports = {
         Hike.findById(id, (err, hike) => {
             if (err) res.json({ success: false, err });
             console.log(hike);
+            // console.log(hike.users.includes(user_id))
             let foundUser = hike.users.find(id => id == user_id);
-            if (foundUser) res.json({ success: false, message: "User already completed." });
-            hike.users.push(user_id);
+            if (foundUser) res.render('hikeAdded');
+            
+            else hike.users.push(user_id);
             // hike.users = [];
             
             hike.save(err => {

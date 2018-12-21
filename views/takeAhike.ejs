@@ -45,11 +45,18 @@
                                     <p><%= i.latitude %> </p>
                                     <p><%= i.longitude %> </p>
                                     <p class="hikeEndObj"><a href="<%= i.trailUrl %>" target="_blank">More Trail Info...</a></p>
-                                    <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
-                                        <button onclick="actOnHike(event);" data-hike-id="{{ this.id }}" type="submit" class="btn-sm btn-success addUser col-2" name="addUser">
-                                            Done! 
-                                        </button>
-                                    </form>
+                                    <!-- <%= i.users.includes(toString(currentUser.id)) %> -->
+                    
+                                    <% if (i.users.find(user => toString(user) === currentUser._id)) { %>
+                                        <!-- <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
+                                            <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
+                                        </form> -->
+                                        <h1>NO CAN DO </h1>
+                                    <% } else { %>
+                                        <form method="post" action="/api/hikes/<%= i._id %>/users/?_method=POST">
+                                            <button type="submit" class="btn-sm btn-success addUser col-2">Done! </button>
+                                        </form>
+                                    <% } %>
                                     <form method="post" action="/api/hikes/<%= i._id %>?_method=PUT" >
                                         <button type="submit" class="btn-sm btn-danger removeUser col-2" name="removeUser"> x</button>
                                     </form>
